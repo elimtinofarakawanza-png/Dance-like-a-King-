@@ -44,6 +44,37 @@
   <!-- HONK SOUND -->
   <audio id="honk-sound" src="honk.mp3"></audio>
 
-  <script src="game.js"></script>
+  <!-- SCRIPT INLINE SO IT ALWAYS RUNS -->
+  <script>
+    // After 2 seconds, hide loading and show menu
+    setTimeout(() => {
+      const loading = document.getElementById("loading-screen");
+      const menu = document.getElementById("main-menu");
+      if (loading && menu) {
+        loading.style.display = "none";
+        menu.style.display = "flex";
+      }
+    }, 2000);
+
+    function playHonk() {
+      const honk = document.getElementById("honk-sound");
+      if (!honk) return;
+      honk.currentTime = 0;
+      honk.play();
+    }
+
+    function startGame() {
+      document.getElementById("main-menu").style.display = "none";
+      document.getElementById("game").style.display = "block";
+    }
+
+    function openSettings() {
+      alert("Settings coming soon!");
+    }
+
+    function openCredits() {
+      alert("Credits:\nE.T Kawanza\nCopilot");
+    }
+  </script>
 </body>
 </html>
