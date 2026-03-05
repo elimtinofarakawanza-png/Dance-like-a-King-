@@ -1,26 +1,26 @@
-function spawnArrow() {
-  const arrow = document.createElement("div");
-  arrow.classList.add("arrow");
-  arrow.style.top = "-40px";
+// LOADING SCREEN → MAIN MENU
+setTimeout(() => {
+  document.getElementById("loading-screen").style.display = "none";
+  document.getElementById("main-menu").style.display = "flex";
+}, 2000);
 
-  document.getElementById("game").appendChild(arrow);
-
-  let pos = -40;
-  const fall = setInterval(() => {
-    pos += 3;
-    arrow.style.top = pos + "px";
-
-    if (pos > 450) {
-      clearInterval(fall);
-      arrow.remove();
-    }
-  }, 20);
+// HONK SOUND
+function playHonk() {
+  const honk = document.getElementById("honk-sound");
+  honk.currentTime = 0;
+  honk.play();
 }
 
-setInterval(spawnArrow, 1000);
+// MENU BUTTONS
+function startGame() {
+  document.getElementById("main-menu").style.display = "none";
+  document.getElementById("game").style.display = "block";
+}
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowUp") {
-    console.log("Hit!");
-  }
-});
+function openSettings() {
+  alert("Settings coming soon!");
+}
+
+function openCredits() {
+  alert("Credits:\nE.T Kawanza\nCopilot");
+}
